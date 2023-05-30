@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insertar Variedad</title>
+<link rel="stylesheet" type="text/css" href="../static/css/insert.css" th:href="@{/css/insert.css}" />
+
+</head>
+<body>
+<h2>Insertar Variedad</h2>
+<form method="post" th:action="@{/variedades/insertar}" th:object="${variedad}">
+<p>Nombre: <input type="text" th:field="*{nombre}" required>
+
+<p><input type="submit" value="insertar">
+
+</form>
+</body>
+</html>

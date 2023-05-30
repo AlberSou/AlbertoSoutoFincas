@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Modificar Finca</title>
+<link rel="stylesheet" type="text/css" href="../static/css/insert.css" th:href="@{/css/insert.css}" />
+
+</head>
+<body>
+<h2>Modificar Finca</h2>
+<form method="post" th:action="@{/fincas/insertar}" th:object="${finca}" required>
+<input type="hidden" name="idfinca" th:value="${finca.idfinca}" required>
+<p>Denominacion: <input type="text" th:field="*{denominacion}" th:value="finca.denominacion" required>
+<p>Direccion: <input type="text" th:field="*{direccion}" th:value="finca.direccion" required>
+<p>Referencia Catastral: <input type="text" th:field="*{referenciacatastral}" th:value="finca.referenciacatastral" required>
+<p>Superficie: <input type="text" th:field="*{superficie}" th:value="finca.superficie" required>
+<p>Localización: <input type="text" th:field="*{localizacion}" th:value="finca.localizacion" required>
+<p>
+<input type="submit" value="insertar" >
+<p><a th:href="@{/fincas/fincasmostrar}">Volver</a> 
+
+</form>
+</body>
+</html>

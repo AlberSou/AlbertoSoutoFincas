@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>CRUD ARBOLES</title>
+<link rel="stylesheet" type="text/css" href="../static/css/mostrar.css" th:href="@{/css/mostrar.css}" />
+
+</head>
+<body>
+<header><a class="opcion" th:href="@{/fincas/fincasmostrar}">Fincas</a><a class="opcion" th:href="@{/variedades/variedadesmostrar}">Variedades</a><a class="opcion" th:href="@{/recolecciones/recoleccionesmostrar}">Recolecciones</a><a class="opcion" th:href="@{/tratamientos/tratamientosmostrar}">Tratamientos</a></header>	<div class="titulo"><h1>CRUD ARBOLES</h1></div>
+	<div class="tabla"><table>
+		<tr>
+			<th>Fila</th>
+			<th>Columna</th>
+			<th>Ubicacion</th>
+			<th>Finca</th>
+			<th>Variedad</th>
+			<th>Estado</th>
+		</tr>
+		<tr th:each="arbol: ${arboles}">
+			<td th:text="${arbol.fila}" />
+			<td th:text="${arbol.columna}" />
+			<td th:text="${arbol.ubicacion}" />
+			<td th:text="${arbol.finca.denominacion}" />
+			<td th:text="${arbol.variedad.nombre}" />
+			<td th:text="${arbol.estado}" />
+			<td><a th:href="@{/arboles/formmodificar?(idarbol=${arbol.idarbol})}">Modificar</a></td>
+			<td><a th:href="@{/arboles/eliminar(idarbol=${arbol.idarbol},idfinca=${arbol.finca.idfinca})}">Eliminar</a></td>
+
+			<td><a th:href="@{/arboles/arboltratamientos?(idarbol=${arbol.idarbol})}">Tratamientos</a></td>
+			<td><a th:href="@{/arboles/arbolfotos?(idarbol=${arbol.idarbol})}">Fotos</a></td>
+			<td><a th:href="@{/arboles/arbolreposiciones?(idarbol=${arbol.idarbol})}">Reposiciones</a></td>
+	
+	</table></div>
+	
+<a th:href="@{/arboles/forminsertar?(idfinca=${finca.idfinca})}">Insertar arbol</a>
+<p><a th:href="@{/fincas/fincasmostrar}">Volver</a> 
+</body>
+</html>
