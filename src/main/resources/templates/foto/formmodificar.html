@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Modificar Foto</title>
+<link rel="stylesheet" type="text/css" href="../static/css/insert.css" th:href="@{/css/insert.css}" />
+
+</head>
+<body>
+<h2>Modificar Foto</h2>
+<form method="post" th:action="@{/fotos/insertar}" th:object="${foto}">
+<input type="hidden" name="idfoto" th:value="${foto.idfoto}">
+<p>Url: <input type="text" th:field="*{url}" th:value="foto.url" required>
+<p>Alias: <input type="text" th:field="*{alias}" th:value="foto.alias" required>
+<p>Arbol: <select th:field="*{arbol}">
+<option value="-1" disabled>Selecciona</option>
+<option th:each="arbol: ${arboles}" th:value="${arbol.idarbol}" th:text="${arbol.ubicacion}"></option>
+</select>
+<p>
+<input type="submit" value="insertar" >
+
+</form>
+<a th:href="@{/arboles/arbolfotos?(idarbol=${foto.arbol.idarbol})}">Volver</a>
+</body>
+</html>
