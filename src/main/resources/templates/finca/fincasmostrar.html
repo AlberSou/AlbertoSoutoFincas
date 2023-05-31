@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>CRUD FINCAS</title>
+<link rel="stylesheet" type="text/css" href="../static/css/mostrar.css" th:href="@{/css/mostrar.css}" />
+
+</head>
+<body>
+<header><a class="opcion" th:href="@{/fincas/fincasmostrar}">Fincas</a><a class="opcion" th:href="@{/variedades/variedadesmostrar}">Variedades</a><a class="opcion" th:href="@{/recolecciones/recoleccionesmostrar}">Recolecciones</a><a class="opcion" th:href="@{/tratamientos/tratamientosmostrar}">Tratamientos</a></header>	<div class="titulo"><h1>CRUD FINCAS</h1></div>
+	<div class="tabla"><table>
+		<tr>
+			<th>Denominacion</th>
+			<th>Direccion</th>
+			<th>Ref</th>
+			<th>Superficie</th>
+			<th>Localizacion</th>
+		
+		</tr>
+		<tr th:each="finca: ${fincas}">
+			<td th:text="${finca.denominacion}" />
+			<td th:text="${finca.direccion}" />
+			<td th:text="${finca.referenciacatastral}" />
+			<td th:text="${finca.superficie}" />
+			<td th:text="${finca.localizacion}" />
+			<td><a th:href="@{/fincas/eliminar?(idfinca=${finca.idfinca})}">Eliminar</a></td>
+			<td><a th:href="@{/fincas/formmodificar?(idfinca=${finca.idfinca})}">Modificar</a></td>
+			<td><a th:href="@{/fincas/fincaarboles?(idfinca=${finca.idfinca})}">Arboles</a></td>
+			<td><a th:href="@{/fincas/fincaplano?(idfinca=${finca.idfinca})}">Plano</a></td>
+	</table></div>
+	
+<a th:href="@{/fincas/forminsertar}">Insertar finca</a>
+<p><a th:href="@{/salir}">Salir</a>
+</body>
+</html>

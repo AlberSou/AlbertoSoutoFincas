@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form method="post" th:action="@{/modificarusuario}" th:object="${usuario}">
+<p>Nombre: <input type="text" th:field="*{denominacion}">
+<p>Direccion: <input type="text" th:field="*{direccion}">
+<p>Refencia catastral: <input type="text" th:field="*{referenciacatastral}">
+<p>Superficie: <input type="text" th:field="*{superficie}">
+<p>Fecha de plantacion: <input type="date" th:field="*{fechaplantacion}">
+<p>Edad: <input type="text" th:field="*{edad}">
+<input type="submit" value="insertar">
+
+</form>
+</body>
+</html>>

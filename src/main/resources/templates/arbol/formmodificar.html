@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Modificar Arbol</title>
+<link rel="stylesheet" type="text/css" href="../static/css/insert.css" th:href="@{/css/insert.css}" />
+
+</head>
+<body>
+<h2>Modificar Arbol</h2>
+<form method="post" th:action="@{/arboles/insertar}" th:object="${arbol}">
+<input type="hidden" name="idarbol" th:value="${arbol.idarbol}">
+<p>Fila: <input type="number" th:field="*{fila}" th:value="arbol.fila" required>
+<p>Columna: <input type="number" th:field="*{columna}" th:value="arbol.columna" required>
+<p>Ubicación: <input type="text" th:field="*{ubicacion}" th:value="arbol.ubicacion" required>
+<p>Finca: <select th:field="*{finca}" required>
+<option value="-1" disabled>Selecciona</option>
+<option th:each="finca: ${fincas}" th:value="${finca.idfinca}" th:text="${finca.denominacion}"></option>
+</select>
+<p>Variedad: <select th:field="*{variedad}" required>
+<option value="-1" disabled>Selecciona</option>
+<option th:each="variedad: ${variedades}" th:value="${variedad.idvariedad}" th:text="${variedad.nombre}"></option>
+</select>
+<p>Estado: <input type="text" th:field="*{estado}" th:value="arbol.estado" required>
+<p>
+<input type="submit" value="insertar" >
+
+</form>
+<a th:href="@{/fincas/fincaarboles?(idfinca=${arbol.finca.idfinca})}">Volver</a> 
+</body>
+</html>
