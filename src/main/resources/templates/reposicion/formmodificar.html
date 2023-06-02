@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Modificar Reposición</title>
+<link rel="stylesheet" type="text/css" href="../static/css/insert.css" th:href="@{/css/insert.css}" />
+
+</head>
+<body>
+<h2>Modificar Reposición</h2>
+<form method="post" th:action="@{/reposiciones/insertar}" th:object="${reposicion}">
+<input type="hidden" name="idreposicion" th:value="${reposicion.idreposicion}">
+<p>Nota: <input type="text" th:field="*{Nota}" th:value="reposicion.Nota" required>
+<p>Fecha Reposicion: <input type="date" th:field="*{fechareposicion}" th:value="reposicion.fechareposicion" required>
+<p>Arbol: <select th:field="*{arbol}" required>
+<option value="-1" disabled>Selecciona</option>
+<option th:each="arbol: ${arboles}" th:value="${arbol.idarbol}" th:text="${arbol.ubicacion}"></option>
+</select>
+<p>
+<input type="submit" value="insertar" >
+
+</form>
+</body>
+</html>

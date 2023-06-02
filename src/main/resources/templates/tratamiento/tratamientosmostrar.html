@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>CRUD TRATAMIENTOS</title>
+<link rel="stylesheet" type="text/css" href="../static/css/mostrar.css" th:href="@{/css/mostrar.css}" />
+
+</head>
+<body>
+	<header><a class="opcion" th:href="@{/fincas/fincasmostrar}">Fincas</a><a class="opcion" th:href="@{/variedades/variedadesmostrar}">Variedades</a><a class="opcion" th:href="@{/recolecciones/recoleccionesmostrar}">Recolecciones</a><a class="opcion" th:href="@{/tratamientos/tratamientosmostrar}">Tratamientos</a></header>
+	<div class="titulo"><h1>CRUD TRATAMEINTOS</h1></div>
+	<div class="tabla"><table>
+		<tr>
+			<th>Denominacion</th>
+			<th>Dosis recomendada</th>
+			<th>Tipo</th>
+			<th>Arbol Fila</th>
+			<th>Arbol Columna</th>
+			<th>Arbol Ubicacion</th>
+		</tr>
+		<tr th:each="tratamiento: ${tratamientos}">
+			<td th:text="${tratamiento.denominacion}" />
+			<td th:text="${tratamiento.dosisrecomendada}" />
+			<td th:text="${tratamiento.tipo}" />
+			<td th:text="${tratamiento.arbol.fila}" />
+			<td th:text="${tratamiento.arbol.columna}" />
+			<td th:text="${tratamiento.arbol.ubicacion}" />
+			<td><a th:href="@{/tratamientos/eliminar?(idtratamiento=${tratamiento.idtratamiento})}">Eliminar</a></td>
+			<td><a th:href="@{/tratamientos/formmodificar?(idtratamiento=${tratamiento.idtratamiento})}">Modificar</a></td>
+	</table></div>
+	
+<a th:href="@{/tratamientos/forminsertar}">Insertar tratamiento</a>
+<p><a th:href="@{/principal}">Volver</a>
+</body>
+</html>

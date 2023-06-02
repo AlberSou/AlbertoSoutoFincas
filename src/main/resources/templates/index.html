@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pitreelin</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+/* Estilos para el header */
+header {
+  background-color: #FFD4D4;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 20px;
+}
+
+header p {
+  font-size: 50px;
+  font-weight: bold;
+  margin-right: 40px;
+}
+
+header img {
+  height: 80px;
+  width: auto;
+  margin-right: 20px;
+}
+
+/* Estilos para el body */
+body {
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+  padding: 0;
+  height:100vh;
+  width:100vw;
+  
+}
+
+/* Estilos para el div contenido */
+.contenido {
+  background-color: #CDE990;
+  height: 100%;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Estilos para los divs enlace dentro de contenido */
+.enlace {
+  background-color: #AAD47E;
+  margin-bottom: 40px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+.enlace a {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+.enlace h1 {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  transition: color 0.3s;
+}
+
+.enlace:hover h1 {
+  color: #D2B48C; /* Cambio de color en el efecto hover */
+}
+
+.enlace p {
+  margin-top: 15px;
+  font-size:25px;
+  text-align:center;
+}
+html, body {
+  overflow: hidden;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <p>Pitreelin</p>
+    <img src="https://i.imgur.com/hL0Ycll.png" alt="Logo de pitreelin">
+  </header>
+
+  <div class="contenido">
+    <div class="enlace">
+      <a th:href="@{/fincas/fincasmostrar}">
+        <h1>Fincas</h1>
+      </a>
+      <p>Vista general y listado de todas las fincas en activo, permiso de vista a todos los usuarios, restringida la creacion modificacion y eliminación</p>
+    </div>
+
+    <div class="enlace">
+      <a th:href="@{/tratamientos/tratamientosmostrar}">
+        <h1>Tratamientos</h1>
+      </a>
+      <p>Vista general y listado de todos los tratamientos aplicados, permiso de vista a todos los usuarios, restringida la creacion modificacion y eliminación</p>
+    </div>
+
+    <div class="enlace">
+      <a th:href="@{/recolecciones/recoleccionesmostrar}">
+        <h1>Recolecciones</h1>
+      </a>
+      <p>Vista general y listado de todas las recolecciones realizadas, permiso de vista a todos los usuarios, restringida la creacion modificacion y eliminación</p>
+    </div>
+    <p><a th:href="@{/salir}">Salir</a>
+  </div>
+  
+</body>
+</html>

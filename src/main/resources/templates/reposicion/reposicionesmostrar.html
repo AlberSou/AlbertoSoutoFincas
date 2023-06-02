@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>CRUD FOTOS</title>
+<link rel="stylesheet" type="text/css" href="../static/css/mostrar.css" th:href="@{/css/mostrar.css}" />
+
+</head>
+<body>
+	<header><a class="opcion" th:href="@{/fincas/fincasmostrar}">Fincas</a><a class="opcion" th:href="@{/variedades/variedadesmostrar}">Variedades</a><a class="opcion" th:href="@{/recolecciones/recoleccionesmostrar}">Recolecciones</a><a class="opcion" th:href="@{/tratamientos/tratamientosmostrar}">Tratamientos</a></header>
+	<div class="titulo"><h1>CRUD REPOSICIONES</h1></div>
+	<div class="tabla"><table>
+		<tr>
+			<th>Nota</th>
+			<th>Fecha Reposicion</th>
+			<th>Arbol Fila</th>
+			<th>Arbol Columna</th>
+			<th>Arbol Ubicacion</th>
+		</tr>
+		<tr th:each="reposicion: ${reposiciones}">
+			<td th:text="${reposicion.nota}" />
+			<td th:text="${reposicion.fechareposicion}" />
+			<td th:text="${reposicion.arbol.columna}" />
+			<td th:text="${reposicion.arbol.fila}" />
+			<td th:text="${reposicion.arbol.ubicacion}" />
+			<td><a th:href="@{/reposiciones/eliminar?(idreposicion=${reposicion.idreposicion})}">Eliminar</a></td>
+			<td><a th:href="@{/reposiciones/formmodificar?(idreposicion=${reposicion.idreposicion})}">Modificar</a></td>
+	</table></div>
+	
+<a th:href="@{/reposiciones/forminsertar}">Insertar reposicion</a>
+<p><a th:href="@{/salir}">Salir</a>
+</body>
+</html>

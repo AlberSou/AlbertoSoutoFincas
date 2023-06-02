@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insertar Reposición</title>
+<link rel="stylesheet" type="text/css" href="../static/css/insert.css" th:href="@{/css/insert.css}" />
+
+</head>
+<body>
+<h2>Insertar Reposición</h2>
+<form method="post" th:action="@{/reposiciones/insertar}" th:object="${reposicion}">
+<p>Nota: <input type="text" th:field="*{Nota}" required>
+<p>Fecha Reposicion: <input type="date" th:field="*{fechareposicion}" required>
+<p>Arbol: <select th:field="*{arbol}" required>
+<option value="-1" disabled>Selecciona</option>
+<option th:each="arbol: ${arboles}" th:value="${arbol.idarbol}" th:text="${arbol.ubicacion}"></option>
+</select>
+<p><input type="submit" value="insertar">
+
+</form>
+</body>
+</html>
