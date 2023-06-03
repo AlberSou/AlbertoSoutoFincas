@@ -78,6 +78,7 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				<mainClass>com.dawes.Proyecto_Alberto_Souto_Martin</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
