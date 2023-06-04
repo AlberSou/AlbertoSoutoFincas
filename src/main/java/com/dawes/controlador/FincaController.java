@@ -21,36 +21,36 @@ ServicioArbol sa;
 @RequestMapping("/fincasmostrar")
 public String mostrar(Model modelo) {
 	modelo.addAttribute("fincas",sf.findAll());
-	return "/finca/fincasmostrar";
+	return "finca/fincasmostrar";
 }
 @RequestMapping("/forminsertar")
 public String forminsertar(Model modelo) {
 	modelo.addAttribute("finca", new FincaVO());
-	return "/finca/forminsertar";
+	return "finca/forminsertar";
 }
 @RequestMapping("/insertar")
 public String Insertar(@ModelAttribute FincaVO finca, Model modelo) {
 	sf.save(finca);
 	modelo.addAttribute("fincas",sf.findAll());
-	return "/finca/fincasmostrar";
+	return "finca/fincasmostrar";
 	
 }
 @RequestMapping("/eliminar")
 public String Eliminar (@RequestParam("idfinca") int idfinca, Model modelo) {
 	sf.deleteById(idfinca);
 	modelo.addAttribute("fincas",sf.findAll());
-	return "/finca/fincasmostrar";
+	return "finca/fincasmostrar";
 }
 @RequestMapping("/formmodificar")
 public String formmodificar(@RequestParam("idfinca") int idfinca,Model modelo) {
 	modelo.addAttribute("finca", sf.findById(idfinca).get());
-	return "/finca/formmodificar";
+	return "finca/formmodificar";
 }
 @RequestMapping("/fincaarboles")
 public String fincaarboles(@RequestParam("idfinca") int idfinca,Model modelo) {
 	modelo.addAttribute("finca", sf.findById(idfinca).get());
 	modelo.addAttribute("arboles",sa.findAllByFinca(sf.findById(idfinca).get()) );
-	return "/arbol/arbolesmostrar";
+	return "arbol/arbolesmostrar";
 }
 @RequestMapping("/fincaplano")
 public String plano(@RequestParam("idfinca") int idfinca, Model modelo) {
