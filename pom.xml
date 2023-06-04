@@ -78,7 +78,7 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
-				<mainClass>com.dawes.Proyecto_Alberto_Souto_Martin</mainClass>
+				<mainClass>com.dawes.Application</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
