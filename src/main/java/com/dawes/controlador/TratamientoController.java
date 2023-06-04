@@ -21,31 +21,31 @@ ServicioArbol sa;
 @RequestMapping("/tratamientosmostrar")
 public String mostrar(Model modelo) {
 	modelo.addAttribute("tratamientos",st.findAll());
-	return "/tratamiento/tratamientosmostrar";
+	return "tratamiento/tratamientosmostrar";
 }
 @RequestMapping("/forminsertar")
 public String forminsertar(Model modelo) {
 	modelo.addAttribute("tratamiento", new TratamientoVO());
 	modelo.addAttribute("arboles", sa.findAll());
-	return "/tratamiento/forminsertar";
+	return "tratamiento/forminsertar";
 }
 @RequestMapping("/insertar")
 public String Insertar(@ModelAttribute TratamientoVO tratamiento, Model modelo) {
 	st.save(tratamiento);
 	modelo.addAttribute("tratamientos",st.findAll());
-	return "/tratamiento/tratamientosmostrar";
+	return "tratamiento/tratamientosmostrar";
 	
 }
 @RequestMapping("/eliminar")
 public String Eliminar (@RequestParam("idtratamiento") int idtratamiento, Model modelo) {
 	st.deleteById(idtratamiento);
 	modelo.addAttribute("tratamientos",st.findAll());
-	return "/tratamiento/tratamientosmostrar";
+	return "tratamiento/tratamientosmostrar";
 }
 @RequestMapping("/formmodificar")
 public String formmodificar(@RequestParam("idtratamiento") int idtratamiento,Model modelo) {
 	modelo.addAttribute("tratamiento", st.findById(idtratamiento).get());
 	modelo.addAttribute("arboles", sa.findAll());
-	return "/tratamiento/formmodificar";
+	return "tratamiento/formmodificar";
 }
 }

@@ -24,33 +24,33 @@ ServicioVariedad sv;
 @RequestMapping("/recoleccionesmostrar")
 public String mostrar(Model modelo) {
 	modelo.addAttribute("recolecciones",sr.findAll());
-	return "/recoleccion/recoleccionesmostrar";
+	return "recoleccion/recoleccionesmostrar";
 }
 @RequestMapping("/forminsertar")
 public String forminsertar(Model modelo) {
 	modelo.addAttribute("recoleccion", new RecoleccionVO());
 	modelo.addAttribute("variedades",sv.findAll());
 	modelo.addAttribute("fincas",sf.findAll());
-	return "/recoleccion/forminsertar";
+	return "recoleccion/forminsertar";
 }
 @RequestMapping("/insertar")
 public String Insertar(@ModelAttribute RecoleccionVO recoleccion, Model modelo) {
 	sr.save(recoleccion);
 	modelo.addAttribute("recolecciones",sr.findAll());
-	return "/recoleccion/recoleccionesmostrar";
+	return "recoleccion/recoleccionesmostrar";
 	
 }
 @RequestMapping("/eliminar")
 public String Eliminar (@RequestParam("idrecoleccion") int idrecoleccion, Model modelo) {
 	sr.deleteById(idrecoleccion);
 	modelo.addAttribute("recolecciones",sr.findAll());
-	return "/recoleccion/recoleccionesmostrar";
+	return "recoleccion/recoleccionesmostrar";
 }
 @RequestMapping("/formmodificar")
 public String formmodificar(@RequestParam("idrecoleccion") int idrecoleccion,Model modelo) {
 	modelo.addAttribute("recoleccion", sr.findById(idrecoleccion).get());
 	modelo.addAttribute("variedades",sv.findAll());
 	modelo.addAttribute("fincas",sf.findAll());
-	return "/recoleccion/formmodificar";
+	return "recoleccion/formmodificar";
 }
 }

@@ -27,13 +27,13 @@ public class ReposicionController {
 	@RequestMapping("/reposicionesmostrar")
 	public String mostrar(Model modelo) {
 		modelo.addAttribute("reposiciones",sr.findAll());
-		return "/reposicion/reposicionesmostrar";
+		return "reposicion/reposicionesmostrar";
 	}
 	@RequestMapping("/forminsertar")
 	public String forminsertar(Model modelo) {
 		modelo.addAttribute("reposicion", new ReposicionVO());
 		modelo.addAttribute("arboles", sa.findAll());
-		return "/reposicion/forminsertar";
+		return "reposicion/forminsertar";
 	}
 	@RequestMapping("/insertar")
 	public String Insertar(@ModelAttribute ReposicionVO reposicion, Model modelo) {
@@ -41,18 +41,18 @@ public class ReposicionController {
 		modelo.addAttribute("arbol", reposicion.getArbol());
 		modelo.addAttribute("fincas", sf.findAll());
 		modelo.addAttribute("variedades", sv.findAll());
-		return "/arbol/formmodificar";
+		return "arbol/formmodificar";
 	}
 	@RequestMapping("/eliminar")
 	public String Eliminar (@RequestParam("idreposicion") int idreposicion, Model modelo) {
 		sr.deleteById(idreposicion);
 		modelo.addAttribute("reposiciones",sr.findAll());
-		return "/reposicion/reposicionesmostrar";
+		return "reposicion/reposicionesmostrar";
 	}
 	@RequestMapping("/formmodificar")
 	public String formmodificar(@RequestParam("idreposicion") int idreposicion,Model modelo) {
 		modelo.addAttribute("reposicion", sr.findById(idreposicion).get());
 		modelo.addAttribute("arboles", sa.findAll());
-		return "/reposicion/formmodificar";
+		return "reposicion/formmodificar";
 	}
 }

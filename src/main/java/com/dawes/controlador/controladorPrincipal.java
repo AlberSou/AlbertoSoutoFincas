@@ -38,7 +38,7 @@ public class controladorPrincipal {
 	public String salir(HttpServletRequest request, Model modelo) {
 		request.getSession(true).invalidate();
 		modelo.addAttribute("fincas",sf.findAll());
-		return "/index";
+		return "index";
 	}
 
 }

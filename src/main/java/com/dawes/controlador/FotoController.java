@@ -23,7 +23,7 @@ ServicioArbol sa;
 public String mostrar(Model modelo,@RequestParam("idarbol") int idarbol) {
 	modelo.addAttribute("/fotos",sf.findAllByArbol(sa.findById(idarbol).get()));
 	modelo.addAttribute("arbol",sa.findById(idarbol).get());
-	return "/foto/fotosmostrar";
+	return "foto/fotosmostrar";
 }
 @RequestMapping("/forminsertar")
 public String forminsertar(Model modelo, @RequestParam("idarbol") int idarbol) {
@@ -31,26 +31,26 @@ public String forminsertar(Model modelo, @RequestParam("idarbol") int idarbol) {
 	foto.setArbol(sa.findById(idarbol).get());
 	modelo.addAttribute("foto", foto);
 	modelo.addAttribute("arboles", sa.findAll());
-	return "/foto/forminsertar";
+	return "foto/forminsertar";
 }
 @RequestMapping("/insertar")
 public String Insertar(@ModelAttribute FotoVO foto, Model modelo) {
 	sf.save(foto);
 	modelo.addAttribute("fotos",sf.findAll());
 	modelo.addAttribute("arbol",foto.getArbol());
-	return "/foto/fotosmostrar";
+	return "foto/fotosmostrar";
 	
 }
 @RequestMapping("/eliminar")
 public String Eliminar (@RequestParam("idfoto") int idfoto, Model modelo) {
 	sf.deleteById(idfoto);
 	modelo.addAttribute("fotos",sf.findAll());
-	return "/foto/fotosmostrar";
+	return "foto/fotosmostrar";
 }
 @RequestMapping("/formmodificar")
 public String formmodificar(@RequestParam("idfoto") int idfoto,Model modelo) {
 	modelo.addAttribute("foto", sf.findById(idfoto).get());
 	modelo.addAttribute("arboles", sa.findAll());
-	return "/foto/formmodificar";
+	return "foto/formmodificar";
 }
 }

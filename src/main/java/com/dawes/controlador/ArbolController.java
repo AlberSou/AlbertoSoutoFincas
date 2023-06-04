@@ -34,7 +34,7 @@ ServicioReposicion sr;
 @RequestMapping("/arbolesmostrar")
 public String mostrar(Model modelo) {
 	modelo.addAttribute("arboles",sa.findAll());
-	return "/arbol/arbolesmostrar";
+	return "arbol/arbolesmostrar";
 }
 @RequestMapping("/forminsertar")
 public String forminsertar(Model modelo,@RequestParam("idfinca") int idfinca) {
@@ -44,7 +44,7 @@ public String forminsertar(Model modelo,@RequestParam("idfinca") int idfinca) {
 	modelo.addAttribute("arbolv", arbol);
 	modelo.addAttribute("fincas", sf.findAll());
 	modelo.addAttribute("variedades", sv.findAll());
-	return "/arbol/forminsertar";
+	return "arbol/forminsertar";
 }
 @RequestMapping("/planoforminsertar")
 public String planoforminsertar(@RequestParam("filax") int fila,@RequestParam("columnax")int columna, @RequestParam("idfincax") int idfinca, Model modelo) {
@@ -55,46 +55,46 @@ public String planoforminsertar(@RequestParam("filax") int fila,@RequestParam("c
 	modelo.addAttribute("arbol", a);
 	modelo.addAttribute("fincas", sf.findAll());
 	modelo.addAttribute("variedades", sv.findAll());
-	return "/arbol/formmodificar";
+	return "arbol/formmodificar";
 }
 @RequestMapping("/insertar")
 public String Insertar(@ModelAttribute ArbolVO arbol, Model modelo) {
 	sa.save(arbol);
 	modelo.addAttribute("finca",sf.findById(arbol.getFinca().getIdfinca()).get());
 	modelo.addAttribute("arboles",sa.findAllByFinca(sf.findById(arbol.getFinca().getIdfinca()).get()) );
-	return "/arbol/arbolesmostrar";
+	return "arbol/arbolesmostrar";
 	
 }
 @RequestMapping("/eliminar")
 public String Eliminar (@RequestParam("idarbol") int idarbol,@RequestParam("idfinca") int idfinca, Model modelo) {
 	sa.deleteById(idarbol);
 	modelo.addAttribute("arboles",sa.findAllByFinca(sf.findById(idfinca).get()) );
-	return "/arbol/arbolesmostrar";
+	return "arbol/arbolesmostrar";
 }
 @RequestMapping("/formmodificar")
 public String formmodificar(@RequestParam("idarbol") int idarbol,Model modelo) {
 	modelo.addAttribute("arbol", sa.findById(idarbol).get());
 	modelo.addAttribute("fincas", sf.findAll());
 	modelo.addAttribute("variedades", sv.findAll());
-	return "/arbol/formmodificar";
+	return "arbol/formmodificar";
 }
 
 @RequestMapping("/arboltratamientos")
 public String arboltratamientos(@RequestParam("idarbol") int idarbol,Model modelo) {
 	modelo.addAttribute("arbol", sa.findById(idarbol).get());
 	modelo.addAttribute("tratamientos",st.findAllByArbol(sa.findById(idarbol).get()) );
-	return "/arbol/tratamientosmostrar";
+	return "arbol/tratamientosmostrar";
 }
 @RequestMapping("/arbolfotos")
 public String arbolfotos(@RequestParam("idarbol") int idarbol,Model modelo) {
 	modelo.addAttribute("arbol", sa.findById(idarbol).get());
 	modelo.addAttribute("fotos",sfo.findAllByArbol(sa.findById(idarbol).get()) );
-	return "/foto/fotosmostrar";
+	return "foto/fotosmostrar";
 }
 @RequestMapping("/arbolreposiciones")
 public String arbolreposiciones(@RequestParam("idarbol") int idarbol,Model modelo) {
 	modelo.addAttribute("arbol", sa.findById(idarbol).get());
 	modelo.addAttribute("reposiciones",sr.findAllByArbol(sa.findById(idarbol).get()) );
-	return "/reposicion/reposicionesmostrar";
+	return "reposicion/reposicionesmostrar";
 }
 }

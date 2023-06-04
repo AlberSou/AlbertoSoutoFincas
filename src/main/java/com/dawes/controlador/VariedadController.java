@@ -19,29 +19,29 @@ ServicioVariedad sv;
 @RequestMapping("/variedadesmostrar")
 public String mostrar(Model modelo) {
 	modelo.addAttribute("variedades",sv.findAll());
-	return "/variedad/variedadesmostrar";
+	return "variedad/variedadesmostrar";
 }
 @RequestMapping("/forminsertar")
 public String forminsertar(Model modelo) {
 	modelo.addAttribute("variedad", new VariedadVO());
-	return "/variedad/forminsertar";
+	return "variedad/forminsertar";
 }
 @RequestMapping("/insertar")
 public String Insertar(@ModelAttribute VariedadVO variedad, Model modelo) {
 	sv.save(variedad);
 	modelo.addAttribute("variedades",sv.findAll());
-	return "/variedad/variedadesmostrar";
+	return "variedad/variedadesmostrar";
 	
 }
 @RequestMapping("/eliminar")
 public String Eliminar (@RequestParam("idvariedad") int idvariedad, Model modelo) {
 	sv.deleteById(idvariedad);
 	modelo.addAttribute("variedades",sv.findAll());
-	return "/variedad/variedadesmostrar";
+	return "variedad/variedadesmostrar";
 }
 @RequestMapping("/formmodificar")
 public String formmodificar(@RequestParam("idvariedad") int idvariedad,Model modelo) {
 	modelo.addAttribute("variedad", sv.findById(idvariedad).get());
-	return "/variedad/formmodificar";
+	return "variedad/formmodificar";
 }
 }
