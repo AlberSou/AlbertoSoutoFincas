@@ -3,7 +3,7 @@ const params = new URLSearchParams(window.location.search);
 const idfinca = params.get("idfinca");
 //Funcion para recoger la url de la id finca para obtener los arboles
 async function recogerDatos() {
-	const response = await fetch(`http://localhost:8080/fincas/plano/${idfinca}`);
+	const response = await fetch(`https://alberto-souto-fincas.herokuapp.com/fincas/fincaplano/${idfinca}`);
 	const data = await response.json();
 	sacarDatos(data);
 }
