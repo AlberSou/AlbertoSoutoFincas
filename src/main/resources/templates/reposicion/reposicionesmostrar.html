@@ -2,7 +2,7 @@
 <html xmlns:th="www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>CRUD FOTOS</title>
+<title>CRUD REPOSICIONES</title>
 <link rel="stylesheet" type="text/css" href="../static/css/mostrar.css" th:href="@{/css/mostrar.css}" />
 
 </head>
@@ -28,6 +28,7 @@
 	</table></div>
 	
 <a th:href="@{/reposiciones/forminsertar}">Insertar reposicion</a>
-<p><a th:href="@{/salir}">Salir</a>
+<p><a th:href="@{/fincas/fincaarboles?(idfinca=${arbol.finca.idfinca})}">Volver</a> 
+
 </body>
 </html>

@@ -26,7 +26,7 @@
 fieldset {
   margin: 0px;
   width: 100%;
-  height: 80%;
+  height: 500px;
   margin: auto;
   border: 2px solid black;
   border-radius: 5px;
@@ -40,6 +40,7 @@ fieldset {
 label {
   display: block; /* los labels se muestran uno debajo del otro */
   margin-bottom: 10px;
+  font-size:25px;
 }
 
 input[type="text"],
@@ -59,13 +60,16 @@ button{
   height: 100px;
   border: 3px black solid;
   font-size: 30px;
-  background-color: #d23a3a;
+  background-color: #FFD4D4;
   border-radius: 10px;
   transition: 0.3s all;
   
 }
 button:hover{
   background-color: #7ed24a;
+}
+legend{
+font-size:30px;
 }
 
   
@@ -75,7 +79,7 @@ button:hover{
     <div tiles:fragment="content" class="content">
         <form name="f" th:action="@{/login}" method="post">               
             <fieldset>
-                <legend>Please Login</legend>
+                <legend>Pitreelin Login</legend>
                 <div th:if="${param.error}" class="alert alert-error">    
                     Invalid username and password.
                 </div>

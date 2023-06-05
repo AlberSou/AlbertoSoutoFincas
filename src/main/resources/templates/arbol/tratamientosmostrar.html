@@ -3,74 +3,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>CRUD TRATAMIENTOS</title>
-<style>
+<link rel="stylesheet" type="text/css" href="../static/css/mostrar.css" th:href="@{/css/mostrar.css}" />
 
-	body{
-		display: flex;
-		flex-direction: column;
-		justify-self: center;
-		align-items: center;
-		margin: 0px;
-		padding: 0px;
-		background-color: #CDE990; 
-		
-	}
-	header{
-		display: flex;
-		flex-direction: row;
-		width: 100%;
-		background-color: #FFD4D4;
-		height: 80px;
-	}
-	.titulo{
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100px;
-	}
-	.opcion{
-		margin-top: 0px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 25%;
-		height: 100%;
-		font-size: 20px;
-		transition: all 0.4s;
-		user-select: none;
-		text-decoration: none;
-	}
-	.opcion:hover{
-		background-color: #eea5a5;
-	}
-	.tabla{
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-		
-	}
-	table{
-		width: 80%;
-		background-color: #FFFFE8;
-		border: 3px solid #eea5a5;
-		padding: 5px;
-		border-radius: 10px;
-	}
-	tr{
-		text-align: center;
-	}
-	a{
-		margin-top: 40px;
-	}
-	p{
-		margin-top: 40px;
-	}
-	
-
-</style>
 </head>
 <body>
 	<header><a class="opcion" th:href="@{/fincas/fincasmostrar}">Fincas</a><a class="opcion" th:href="@{/variedades/variedadesmostrar}">Variedades</a><a class="opcion" th:href="@{/recolecciones/recoleccionesmostrar}">Recolecciones</a><a class="opcion" th:href="@{/tratamientos/tratamientosmostrar}">Tratamientos</a></header>
@@ -96,6 +30,6 @@
 	</table></div>
 	
 <a th:href="@{/tratamientos/forminsertar}">Insertar tratamiento</a>
-<p><a th:href="@{/salir}">Salir</a>
+<p><a th:href="@{/fincas/fincaarboles?(idfinca=${arbol.finca.idfinca})}">Volver</a> 
 </body>
 </html>

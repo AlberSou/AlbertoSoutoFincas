@@ -89,6 +89,10 @@ body {
 html, body {
   overflow: hidden;
 }
+.logout{
+font-size:25px;
+
+}
 
   </style>
 </head>
@@ -119,7 +123,7 @@ html, body {
       </a>
       <p>Vista general y listado de todas las recolecciones realizadas, permiso de vista a todos los usuarios, restringida la creacion modificacion y eliminación</p>
     </div>
-    <p><a th:href="@{/salir}">Salir</a>
+    <p><a class="logout" th:href="@{/salir}">Cerrar sesión</a>
   </div>
   
 </body>

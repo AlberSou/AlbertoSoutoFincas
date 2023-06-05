@@ -44,11 +44,17 @@ function sacarDatos(data) {
 	for (let arbol of data) {
 		const tree = document.createElement("div");
 		tree.classList.add("arbol");
-		tree.textContent = arbol.idarbol;
-		tree.style.backgroundColor = arbol.variedad.color;
 
-		if (arbol.estado === "Muerto") {
+		switch (toUpperCase(arbol.estado)) {
+			case "MUERTO":
 			tree.style.backgroundColor = "black";
+			break;
+			case "SANO":
+			tree.style.backgroundColor = "lightbrown";
+			break;
+			case "ENFERMO":
+			tree.style.backgroundColor = "darkgreen";
+			break;
 		}
 		tree.style.gridRow = (arbol.fila).toString();
 		tree.style.gridColumn = arbol.columna.toString();
