@@ -47,7 +47,7 @@ function sacarDatos(data) {
 		tree.textContent = arbol.idarbol;
 		tree.style.backgroundColor = arbol.variedad.color;
 
-		switch (toUpperCase(arbol.estado)) {
+		switch (arbol.estadotoUpperCase()) {
 			case "MUERTO":
 			tree.style.backgroundColor = "black";
 			break;
