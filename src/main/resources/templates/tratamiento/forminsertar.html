@@ -17,7 +17,7 @@
 <option th:each="arbol: ${arboles}" th:value="${arbol.idarbol}" th:text="${arbol.ubicacion}"></option>
 </select>
 <p><input type="submit" value="insertar">
-
+<p><a th:href="@{/tratamientos/tratamientosmostrar}">Volver</a> 
 </form>
 </body>
 </html>

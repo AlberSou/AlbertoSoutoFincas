@@ -32,7 +32,7 @@ public class MiSeguridad {
 
 		// autorizamos a user acceso a la carpeta user
 
-		http.authorizeHttpRequests().requestMatchers("/fincas/fincasmostrar").hasAnyRole("USER", "ADMIN").and().exceptionHandling()
+		http.authorizeHttpRequests().requestMatchers("/fincas/fincasmostrar","/fincas/fincaplano","/variedades/variedadesmostrar","/fincas/fincaarboles").hasAnyRole("USER", "ADMIN").and().exceptionHandling()
 				.accessDeniedPage("/403");
 
 		;
@@ -45,7 +45,7 @@ public class MiSeguridad {
 		;
 
 		// el raiz , index, login, 403 no requieren autentificación
-		http.authorizeHttpRequests().requestMatchers("/", "/fincas/fincasmostrar", "/login", "/403","/fincas/plano/**").permitAll().anyRequest()
+		http.authorizeHttpRequests().requestMatchers("/", "/fincas/fincasmostrar", "/login", "/403").permitAll().anyRequest()
 				.authenticated();
 
 		// para autenticarse utiliza el formulario de login personalizado

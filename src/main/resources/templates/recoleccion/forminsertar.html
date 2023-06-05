@@ -21,6 +21,7 @@
 <option th:each="finca: ${fincas}" th:value="${finca.idfinca}" th:text="${finca.denominacion}"></option>
 </select>
 <p><input type="submit" value="insertar">
+<p><a th:href="@{/recolecciones/recoleccionesmostrar}">Volver</a> 
 
 </form>
 </body>
