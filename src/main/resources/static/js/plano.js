@@ -44,6 +44,12 @@ function sacarDatos(data) {
 	for (let arbol of data) {
 		const tree = document.createElement("div");
 		tree.classList.add("arbol");
+		tree.textContent = arbol.idarbol;
+		tree.style.backgroundColor = arbol.variedad.color;
+
+		for (let arbol of data) {
+		const tree = document.createElement("div");
+		tree.classList.add("arbol");
 
 		switch (toUpperCase(arbol.estado)) {
 			case "MUERTO":
