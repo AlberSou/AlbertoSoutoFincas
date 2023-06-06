@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dawes.modelo.FotoVO;
 import com.dawes.modelo.ReposicionVO;
 import com.dawes.servicios.ServicioArbol;
 import com.dawes.servicios.ServicioFinca;
@@ -30,8 +31,10 @@ public class ReposicionController {
 		return "reposicion/reposicionesmostrar";
 	}
 	@RequestMapping("/forminsertar")
-	public String forminsertar(Model modelo) {
-		modelo.addAttribute("reposicion", new ReposicionVO());
+	public String forminsertar(Model modelo,@RequestParam("idarbol") int idarbol) {
+		ReposicionVO reposicion = new ReposicionVO();
+		reposicion.setArbol(sa.findById(idarbol).get());
+		modelo.addAttribute("reposicion", reposicion);
 		modelo.addAttribute("arboles", sa.findAll());
 		return "reposicion/forminsertar";
 	}
