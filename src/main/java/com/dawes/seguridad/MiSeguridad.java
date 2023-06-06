@@ -32,7 +32,7 @@ public class MiSeguridad {
 
 		// autorizamos a user acceso a la carpeta user
 
-		http.authorizeHttpRequests().requestMatchers("/fincas/fincasmostrar","/fincas/plano","/variedades/variedadesmostrar","/fincas/fincaarboles").hasAnyRole("USER", "ADMIN").and().exceptionHandling()
+		http.authorizeHttpRequests().requestMatchers("/fincas/fincasmostrar","/fincas/fincaplano","/fincas/plano/**","/variedades/variedadesmostrar","/fincas/fincaarboles").hasAnyRole("USER", "ADMIN").and().exceptionHandling()
 				.accessDeniedPage("/403");
 
 		;
