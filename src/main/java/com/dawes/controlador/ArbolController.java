@@ -83,7 +83,7 @@ public String formmodificar(@RequestParam("idarbol") int idarbol,Model modelo) {
 public String arboltratamientos(@RequestParam("idarbol") int idarbol,Model modelo) {
 	modelo.addAttribute("arbol", sa.findById(idarbol).get());
 	modelo.addAttribute("tratamientos",st.findAllByArbol(sa.findById(idarbol).get()) );
-	return "arbol/tratamientosmostrar";
+	return "tratamiento/tratamientosmostrararbol";
 }
 @RequestMapping("/arbolfotos")
 public String arbolfotos(@RequestParam("idarbol") int idarbol,Model modelo) {
