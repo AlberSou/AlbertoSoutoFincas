@@ -69,6 +69,7 @@ public String Insertar(@ModelAttribute ArbolVO arbol, Model modelo) {
 public String Eliminar (@RequestParam("idarbol") int idarbol,@RequestParam("idfinca") int idfinca, Model modelo) {
 	sa.deleteById(idarbol);
 	modelo.addAttribute("arboles",sa.findAllByFinca(sf.findById(idfinca).get()) );
+	modelo.addAttribute("finca",sf.findById(idfinca).get());
 	return "arbol/arbolesmostrar";
 }
 @RequestMapping("/formmodificar")

@@ -25,11 +25,11 @@
 			<td th:text="${tratamiento.arbol.fila}" />
 			<td th:text="${tratamiento.arbol.columna}" />
 			<td th:text="${tratamiento.arbol.ubicacion}" />
-			<td><a th:href="@{/tratamientos/eliminar?(idtratamiento=${tratamiento.idtratamiento})}">Eliminar</a></td>
+			<td><a th:href="@{/tratamientos/eliminararbol?(idtratamiento=${tratamiento.idtratamiento},idarbol=${arbol.idarbol})}">Eliminar</a></td>
 			<td><a th:href="@{/tratamientos/formmodificar?(idtratamiento=${tratamiento.idtratamiento})}">Modificar</a></td>
 	</table></div>
 	
-<a th:href="@{/tratamientos/forminsertar}">Insertar tratamiento</a>
+<a th:href="@{/tratamientos/forminsertararbol?(idarbol=${arbol.idarbol})}">Insertar tratamiento</a>
 <p><a th:href="@{/fincas/fincaarboles?(idfinca=${arbol.finca.idfinca})}">Volver</a> 
 </body>
 </html>

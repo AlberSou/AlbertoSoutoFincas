@@ -36,15 +36,16 @@ public String forminsertar(Model modelo, @RequestParam("idarbol") int idarbol) {
 @RequestMapping("/insertar")
 public String Insertar(@ModelAttribute FotoVO foto, Model modelo) {
 	sf.save(foto);
-	modelo.addAttribute("fotos",sf.findAll());
+	modelo.addAttribute("fotos",sf.findAllByArbol(foto.getArbol()));
 	modelo.addAttribute("arbol",foto.getArbol());
 	return "foto/fotosmostrar";
 	
 }
 @RequestMapping("/eliminar")
-public String Eliminar (@RequestParam("idfoto") int idfoto, Model modelo) {
+public String Eliminar (@RequestParam("idfoto") int idfoto, Model modelo,@RequestParam("idarbol") int idarbol) {
 	sf.deleteById(idfoto);
-	modelo.addAttribute("fotos",sf.findAll());
+	modelo.addAttribute("fotos",sf.findAllByArbol(sa.findById(idarbol).get()));
+	modelo.addAttribute("arbol",sa.findById(idarbol).get());
 	return "foto/fotosmostrar";
 }
 @RequestMapping("/formmodificar")

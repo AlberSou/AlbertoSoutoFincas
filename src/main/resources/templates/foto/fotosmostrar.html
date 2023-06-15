@@ -25,7 +25,7 @@
 			<td th:text="${foto.arbol.fila}" />
 			<td th:text="${foto.arbol.columna}" />
 			<td th:text="${foto.arbol.ubicacion}" />
-			<td><a th:href="@{/fotos/eliminar?(idfoto=${foto.idfoto})}">Eliminar</a></td>
+			<td><a th:href="@{/fotos/eliminar?(idfoto=${foto.idfoto},idarbol=${arbol.idarbol})}">Eliminar</a></td>
 			<td><a th:href="@{/fotos/formmodificar?(idfoto=${foto.idfoto})}">Modificar</a></td>
 	</table></div>
 	

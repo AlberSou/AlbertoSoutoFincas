@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insertar Tratamiento</title>
+<link rel="stylesheet" type="text/css" href="../static/css/insert.css" th:href="@{/css/insert.css}" />
+
+</head>
+<body>
+<h2>Insertar Tratamiento</h2>
+<form method="post" th:action="@{/tratamientos/insertararbol}" th:object="${tratamiento}">
+<p>Denominacion: <input type="text" th:field="*{denominacion}" required>
+<p>Dosis recomendada: <input type="number" th:field="*{dosisrecomendada}" required>
+<p>Tipo: <input type="text" th:field="*{tipo}" required>
+<p>Arbol: <select th:field="*{arbol}" required>
+<option value="-1" disabled>Selecciona</option>
+<option th:each="arbol: ${arboles}" th:value="${arbol.idarbol}" th:text="${arbol.ubicacion}"></option>
+</select>
+<p><input type="submit" value="insertar">
+
+
+</form>
+<a th:href="@{/arboles/arboltratamientos?(idarbol=${tratamiento.arbol.idarbol})}">Volver</a>
+</body>
+</html>

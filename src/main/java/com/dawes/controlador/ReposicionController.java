@@ -47,9 +47,10 @@ public class ReposicionController {
 		return "arbol/formmodificar";
 	}
 	@RequestMapping("/eliminar")
-	public String Eliminar (@RequestParam("idreposicion") int idreposicion, Model modelo) {
+	public String Eliminar (@RequestParam("idreposicion") int idreposicion, Model modelo,@RequestParam("idarbol") int idarbol) {
 		sr.deleteById(idreposicion);
-		modelo.addAttribute("reposiciones",sr.findAll());
+		modelo.addAttribute("reposiciones",sr.findAllByArbol((sa.findById(idarbol).get())));
+		modelo.addAttribute("arbol",sa.findById(idarbol).get());
 		return "reposicion/reposicionesmostrar";
 	}
 	@RequestMapping("/formmodificar")

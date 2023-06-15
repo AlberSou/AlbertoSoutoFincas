@@ -23,7 +23,7 @@
 			<td th:text="${reposicion.arbol.columna}" />
 			<td th:text="${reposicion.arbol.fila}" />
 			<td th:text="${reposicion.arbol.ubicacion}" />
-			<td><a th:href="@{/reposiciones/eliminar?(idreposicion=${reposicion.idreposicion})}">Eliminar</a></td>
+			<td><a th:href="@{/reposiciones/eliminar?(idreposicion=${reposicion.idreposicion},idarbol=${arbol.idarbol})}">Eliminar</a></td>
 			<td><a th:href="@{/reposiciones/formmodificar?(idreposicion=${reposicion.idreposicion})}">Modificar</a></td>
 	</table></div>
 	
