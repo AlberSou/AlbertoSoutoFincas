@@ -4,7 +4,7 @@ const idFinca = params.get("idfinca");
 
 // Función para obtener los datos de los árboles
 async function obtenerDatosArboles() {
-  const response = await fetch(`http://localhost:8080/fincas/plano/${idFinca}`);
+  const response = await fetch(`https://alberto-souto-fincas.herokuapp.com/fincas/plano/${idFinca}`);
   const datos = await response.json();
   mostrarDatosArboles(datos);
 }
